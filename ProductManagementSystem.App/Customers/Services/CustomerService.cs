@@ -6,10 +6,10 @@ public class CustomerService : ICustomerService
 {
     private readonly List<Customer> _customerList = [];
 
-    public Customer AddCustomer(Guid id, string firstName,string lastName, string emailAddress, string? phoneNumber)
+    public Customer AddCustomer(string firstName,string lastName, string emailAddress, string? phoneNumber)
     {
 
-        var customer = CreateCustomer(id, firstName, lastName, emailAddress, phoneNumber);
+        var customer = CreateCustomer(firstName, lastName, emailAddress, phoneNumber);
 
         _customerList.Add(customer);
 
@@ -20,8 +20,7 @@ public class CustomerService : ICustomerService
         return _customerList;
     }
 
-    private static Customer CreateCustomer(Guid id, string firstName, string lastName, string email, string? phoneNumber) =>
+    private static Customer CreateCustomer(string firstName, string lastName, string email, string? phoneNumber) =>
         new(Guid.NewGuid(), firstName.Trim(), lastName.Trim(), email.ToLower(), phoneNumber);
 
-    
 }
