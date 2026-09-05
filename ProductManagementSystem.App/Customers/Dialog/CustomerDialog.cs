@@ -1,4 +1,5 @@
-﻿using ProductManagementSystem.App.Customers.Services;
+﻿using ProductManagementSystem.App.Customers.Models;
+using ProductManagementSystem.App.Customers.Services;
 
 namespace ProductManagementSystem.App.Customers.Dialog;
 
@@ -17,21 +18,29 @@ public class CustomerDialog(ICustomerService customerService) : ICustomerDialog
         var customer = customerService.AddCustomer(firstName, lastName, email, phone);
 
         if (customer is not null)
-            Console.WriteLine($"Customer with id '{customer.Id}' was created");
+            Console.WriteLine($"Customer '{customer.FullName}' with id '{customer.Id}' was created!");
         else
             Console.WriteLine($"Unable to create new customer");
 
+        Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
-
     }
     public void ShowAllCustomers()
     {
         var customers = customerService.GetAllCustomers();
+        Console.Clear();
+        Console.WriteLine("#### CUSTOMERLIST ####");
 
         foreach (var customer in customers)
         {
-            Console.WriteLine($"{customer.FullName}");
+            Console.WriteLine($"Name: {customer.FullName}");
+            Console.WriteLine($"Id: {customer.Id}");
+            Console.WriteLine($"Email: {customer.EmailAddress}");
+            Console.WriteLine($"Phone: {customer.PhoneNumber}");
+            Console.WriteLine("-------------------------------");
         }
+        Console.WriteLine("\nPress any key to continue...");
+        Console.ReadKey();
     }
 
     private static void InputDialog(string text, out string value)
@@ -43,7 +52,6 @@ public class CustomerDialog(ICustomerService customerService) : ICustomerDialog
             Console.Clear();
                
         }
-        while(string.IsNullOrWhiteSpace(text));
-
+        while(string.IsNullOrWhiteSpace(value));
     }
 }

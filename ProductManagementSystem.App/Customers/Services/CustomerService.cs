@@ -1,4 +1,5 @@
 ﻿using ProductManagementSystem.App.Customers.Models;
+using System.Xml.Linq;
 
 namespace ProductManagementSystem.App.Customers.Services;
 
@@ -8,7 +9,6 @@ public class CustomerService : ICustomerService
 
     public Customer AddCustomer(string firstName,string lastName, string emailAddress, string? phoneNumber)
     {
-
         var customer = CreateCustomer(firstName, lastName, emailAddress, phoneNumber);
 
         _customerList.Add(customer);
