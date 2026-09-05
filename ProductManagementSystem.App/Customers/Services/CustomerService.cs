@@ -1,0 +1,26 @@
+﻿using ProductManagementSystem.App.Customers.Models;
+using System.Xml.Linq;
+
+namespace ProductManagementSystem.App.Customers.Services;
+
+public class CustomerService : ICustomerService
+{
+    private readonly List<Customer> _customerList = [];
+
+    public Customer AddCustomer(string firstName,string lastName, string emailAddress, string? phoneNumber)
+    {
+        var customer = CreateCustomer(firstName, lastName, emailAddress, phoneNumber);
+
+        _customerList.Add(customer);
+
+        return customer;
+    }
+    public IReadOnlyList<Customer> GetAllCustomers()
+    {
+        return _customerList;
+    }
+
+    private static Customer CreateCustomer(string firstName, string lastName, string email, string? phoneNumber) =>
+        new(Guid.NewGuid(), firstName.Trim(), lastName.Trim(), email.ToLower(), phoneNumber);
+
+}
