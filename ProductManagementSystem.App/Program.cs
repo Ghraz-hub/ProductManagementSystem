@@ -2,8 +2,11 @@
 using Microsoft.Extensions.Hosting;
 using ProductManagementSystem.App.Customers.Dialog;
 using ProductManagementSystem.App.Customers.Services;
+using ProductManagementSystem.App.MainMenu;
 using ProductManagementSystem.App.Products.Dialog;
 using ProductManagementSystem.App.Products.Services;
+using ProductManagementSystem.App.Suppliers.Dialog;
+using ProductManagementSystem.App.Suppliers.Services;
 
 var builder = Host.CreateApplicationBuilder(args);
 
@@ -15,15 +18,21 @@ builder.Services.AddTransient<ICustomerDialog, CustomerDialog>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddTransient<IProductDialog, ProductDialog>();
 
+// Supplier
+
+builder.Services.AddSingleton<ISupplierService, SupplierService>();
+builder.Services.AddTransient<ISupplierDialog, SupplierDialog>();
+
 // Bygg EFTER att allt registrerats
 using var host = builder.Build();
 
 var dialogCustomer = host.Services.GetRequiredService<ICustomerDialog>();
 
-dialogCustomer.ShowCustomerDialog();
-dialogCustomer.ShowAllCustomers();
-
 var dialogProduct = host.Services.GetRequiredService<IProductDialog>();
 
-dialogProduct.ShowProductDialog();
-dialogProduct.ShowAllProducts();
+var dialogSupplier = host.Services.GetRequiredService<ISupplierDialog>();
+
+var mainMenu = new MainMenu(dialogCustomer, dialogProduct, dialogSupplier);
+
+mainMenu.ShowMainMenu();
+
