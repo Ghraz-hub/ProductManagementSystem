@@ -13,9 +13,10 @@ public class MainMenu(ICustomerDialog customerDialog, IProductDialog productDial
         {
             Console.Clear();
             Console.WriteLine($"#### MAINMENU ####");
-            Console.WriteLine("[1] CUSTOMERS ");
+            Console.WriteLine("\n[1] CUSTOMERS ");
             Console.WriteLine("[2] PRODUCTS ");
             Console.WriteLine("[3] SUPPLIER ");
+            Console.WriteLine("[4] SHOW ALL");
             Console.WriteLine("[0] QUIT ");
 
             var input = Console.ReadLine();
@@ -34,7 +35,15 @@ public class MainMenu(ICustomerDialog customerDialog, IProductDialog productDial
                     supplierDialog.ShowSupplierDialog();
                     supplierDialog.ShowAllSuppliers();
                     break;
-                case "0":
+                case "4":
+                    customerDialog.ShowAllCustomers();
+                    productDialog.ShowAllProducts();
+                    supplierDialog.ShowAllSuppliers();                    
+                    break;
+                case "0":                    
+                    Console.Clear();
+                    Console.WriteLine("Program closing...");
+                    Thread.Sleep(1000);
                     Environment.Exit(0);
                     break;
                 default:
