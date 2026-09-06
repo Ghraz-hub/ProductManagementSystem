@@ -32,7 +32,7 @@ public class SupplierDialog(ISupplierService supplierService) : ISupplierDialog
             Console.WriteLine($"Phone: {item.PhoneNumber}");
             Console.WriteLine($"Email: {item.Email}");
         }
-        Console.WriteLine("---------------------------");
+        Console.WriteLine("--------------------------");
         Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
     }
