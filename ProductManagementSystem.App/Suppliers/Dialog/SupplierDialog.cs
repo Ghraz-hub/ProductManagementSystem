@@ -27,7 +27,7 @@ public class SupplierDialog(ISupplierService supplierService) : ISupplierDialog
         {
             Console.WriteLine($"{item}");
         }
-        Console.WriteLine("----------------------------");
+        Console.WriteLine("--------------------------");
         Console.WriteLine("\nPress any key to continue...");
         Console.ReadKey();
     }
