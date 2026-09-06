@@ -13,7 +13,7 @@ public class CustomerDialog(ICustomerService customerService) : ICustomerDialog
         InputDialog($"Enter first name: ", out string firstName);
         InputDialog($"Enter last name: ", out string lastName);
         InputDialog($"Enter email: ", out string email);
-        InputDialog($"Enter phone number: ", out string phone);
+        InputDialog($"Enter phonenumber: ", out string phone);
 
         var customer = customerService.AddCustomer(firstName, lastName, email, phone);
 

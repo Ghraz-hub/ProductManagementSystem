@@ -1,5 +1,4 @@
-﻿using ProductManagementSystem.App.Customers.Models;
-using ProductManagementSystem.App.Suppliers.Services;
+﻿using ProductManagementSystem.App.Suppliers.Services;
 
 namespace ProductManagementSystem.App.Suppliers.Dialog;
 
@@ -26,11 +25,7 @@ public class SupplierDialog(ISupplierService supplierService) : ISupplierDialog
         Console.WriteLine("### SUPPLIERS ###");
         foreach (var item in suppliers)
         {
-            Console.WriteLine($"Name: {item.Name}");
-            Console.WriteLine($"Location: {item.Location}");
-            Console.WriteLine($"Buissness Number: {item.BuissnessNumber}");
-            Console.WriteLine($"Phone: {item.PhoneNumber}");
-            Console.WriteLine($"Email: {item.Email}");
+            Console.WriteLine($"{item}");
         }
         Console.WriteLine("----------------------------");
         Console.WriteLine("\nPress any key to continue...");
