@@ -11,4 +11,9 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\Dialog\" />
+    <Folder Include="Products\Services\" />
+  </ItemGroup>
+
 </Project>
