@@ -6,7 +6,7 @@ namespace ProductManagementSystem.App.Customers.Dialog;
 public class CustomerDialog(ICustomerService customerService) : ICustomerDialog
 {
 
-    public void ShowDialog()
+    public void ShowCustomerDialog()
     {
         Console.Clear();
         Console.WriteLine("#### ADD CUSTOMER ####");

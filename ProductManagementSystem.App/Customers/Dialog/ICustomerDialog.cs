@@ -2,7 +2,7 @@
 
 public interface ICustomerDialog
 {
-    void ShowDialog();
+    void ShowCustomerDialog();
     void ShowAllCustomers();
 
 }
