@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ProductManagementSystem.App/Customers/Dialog/CustomerDialog.cs
+/ProductManagementSystem.App/Suppliers/Dialog/SupplierDialog.cs
+/ProductManagementSystem.App/Suppliers/Services/SupplierService.cs
+/ProductManagementSystem.App/Program.cs
