@@ -5,7 +5,7 @@ namespace ProductManagementSystem.App.Products.Services;
 internal class ProductService : IProductService
 {
     private readonly List<Product> _productList = [];
-    public Product CreateProduct(string name, decimal price, int quantity)
+    public Product CreateProduct(string name, string price, string quantity)
     {
         var logged = DateTime.Now;
 
@@ -16,7 +16,7 @@ internal class ProductService : IProductService
         return newProduct;
     }
 
-    public List<Product> GetAllProducts(List<Product> products)
+    public List<Product> GetAllProducts()
     {
         return _productList;
     }
