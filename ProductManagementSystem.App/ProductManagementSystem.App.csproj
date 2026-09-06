@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="Suppliers\Dialog\" />
-    <Folder Include="Suppliers\Services\" />
   </ItemGroup>
 
 </Project>
